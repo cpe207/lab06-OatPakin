@@ -3,8 +3,13 @@ import axios from "axios";
 
 /* assign interface/type to the function definition properly */
 const getUser = async (userId: number) => {
-  /* Your code here */
+  try{
+  let m = await axios.get (`https://jsonplaceholder.typicode.com/users/${userId}`)
+  return m.data.name;
+} catch(e){
+  return "INVALID USER ID"
 };
+}
 
 //test case
 const input1 = 1;
